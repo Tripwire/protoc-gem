@@ -1,0 +1,24 @@
+PATH
+  remote: .
+  specs:
+    protoc (2.6.1)
+      Platform (~> 0.4)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    Platform (0.4.0)
+    rake (11.1.2)
+    rubygems-tasks (0.2.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.0)
+  protoc!
+  rake (~> 11.0)
+  rubygems-tasks (~> 0.2)
+
+BUNDLED WITH
+   1.11.2

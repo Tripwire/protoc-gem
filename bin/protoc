@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+require 'platform'
+require 'protoc/version'
+
+PLATFORM_TO_PROTOC_ARCH = {:x86 => :x86_32, :x86_64 => :x86_64}
+
+# Work around for lack of x86_64 support in Platform 0.4.0, which is the
+# latest in rubygems.org. https://github.com/mmower/platform/issues/3
+def platform_arch
+  if Platform::ARCH == :unknown && RUBY_PLATFORM =~ /x86_64/
+    :x86_64
+  else
+    Platform::ARCH
+  end
+end
+
+def exec_protoc_for_os(os)
+  exec("#{File.dirname(__FILE__)}/protoc-#{Protoc::VERSION}-#{os}-#{PLATFORM_TO_PROTOC_ARCH[platform_arch]}.exe", *ARGV)
+end
+
+case Platform::OS
+  when :win32
+    exec_protoc_for_os('windows')
+  when :unix
+    case Platform::IMPL
+      when :macosx
+        exec_protoc_for_os('osx')
+      when :linux
+        exec_protoc_for_os('linux')
+      else
+        raise "I don't have a binary for #{Platform::IMPL}"
+    end
+  else
+    raise "I don't have a binary for #{Platform::OS}"
+end
