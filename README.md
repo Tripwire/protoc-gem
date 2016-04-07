@@ -1,9 +1,9 @@
 protoc
 ==================
 
-This gem includes protoc binaries for Linux, Mac, and Windows. It installs a executable shim called `protoc` that picks
-the right one to run on your platform. You can use this gem to ensure that you have a protoc of the version you need on
-a system.
+This gem includes protoc, the protobuf compiler, binaries for Linux, Mac, and Windows. It installs a executable shim
+called `protoc` that picks the right one to run on your platform. You can use this gem to ensure that you have a protoc
+of the version you need. By using this gem, you will not need to manually install the right protoc on your hosts.
 
 ## Suggested Use
 
@@ -13,7 +13,7 @@ Put `protoc` in your Gemfile, with the version of protobuf that you need.
 depends 'protoc', '2.6.1'
 ```
 
-Run `protoc` using `bundle exec`.
+Run `protoc` using `bundle exec`. This ensures that you run `protoc` from this gem.
 
 ```
 $ bundle exec protoc --version
