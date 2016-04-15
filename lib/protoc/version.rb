@@ -1,3 +1,3 @@
 module Protoc
-  VERSION = '2.6.1'
+  VERSION = '2.5.0'
 end

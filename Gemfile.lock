@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    protoc (2.6.1)
+    protoc (2.5.0)
       Platform (~> 0.4)
 
 GEM
