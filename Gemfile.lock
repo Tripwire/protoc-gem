@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    protoc (2.6.1)
+    protoc (2.6.1.1)
       Platform (~> 0.4)
 
 GEM
@@ -21,4 +21,4 @@ DEPENDENCIES
   rubygems-tasks (~> 0.2)
 
 BUNDLED WITH
-   1.11.2
+   1.14.3
