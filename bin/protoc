@@ -16,7 +16,7 @@ def platform_arch
 end
 
 def exec_protoc_for_os(os)
-  exec("#{File.dirname(__FILE__)}/protoc-#{Protoc::VERSION}-#{os}-#{PLATFORM_TO_PROTOC_ARCH[platform_arch]}.exe", *ARGV)
+  exec("#{File.dirname(__FILE__)}/protoc-#{Protoc::PROTOBUF_VERSION}-#{os}-#{PLATFORM_TO_PROTOC_ARCH[platform_arch]}.exe", *ARGV)
 end
 
 case Platform::OS

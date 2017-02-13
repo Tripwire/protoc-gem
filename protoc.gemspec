@@ -15,8 +15,9 @@ of the version you need. By using this gem, you will not need to manually instal
   spec.homepage = 'https://github.com/Tripwire/protoc-gem'
   spec.license = 'BSD'
 
-  spec.files = Dir['{bin,lib}/**/*']
+  spec.files = Dir['{bin,lib,ext}/**/*']
   spec.executables = spec.files.grep(%r{^bin}) { |f| File.basename(f) }
+  spec.extensions = 'ext/protoc/extconf.rb'
 
   spec.add_development_dependency 'bundler', '~> 1.0'
   spec.add_development_dependency 'rake', '~> 11.0'
