@@ -1,24 +1,21 @@
-PROTOBUF_VERSION = @PROTOBUF_VERSION@
 PROTOC_BINARY_PATH = @PROTOC_BINARY_PATH@
 
 build: stage/bin/protoc
 
-protobuf-$(PROTOBUF_VERSION):
-	curl -L https://github.com/google/protobuf/archive/v$(PROTOBUF_VERSION).tar.gz | tar xz
-
-protobuf-$(PROTOBUF_VERSION)/configure: | protobuf-$(PROTOBUF_VERSION)
-	cd protobuf-$(PROTOBUF_VERSION) && \
+protobuf/configure:
+	cd protobuf && \
 	autoreconf -f -i -Wall,no-obsolete && \
 	rm -rf autom4te.cache config.h.in~
 
-protobuf-$(PROTOBUF_VERSION)/Makefile: protobuf-$(PROTOBUF_VERSION)/configure
-	cd protobuf-$(PROTOBUF_VERSION) && \
-	./configure --prefix=$(shell pwd)/stage --disable-shared
+protobuf/Makefile: protobuf/configure
+	cd protobuf && ./configure --prefix=$(shell pwd)/stage --disable-shared
 
-stage/bin/protoc: protobuf-$(PROTOBUF_VERSION)/Makefile
-	cd protobuf-$(PROTOBUF_VERSION) && \
-	$(MAKE) install
+stage/bin/protoc: protobuf/Makefile
+	cd protobuf && $(MAKE) install
 
 install: stage/bin/protoc
 	mv -f stage/bin/protoc $(PROTOC_BINARY_PATH)
-	rm -rf protobuf-$(PROTOBUF_VERSION) stage
+
+clean:
+	-rm -rf stage
+	cd protobuf && $(MAKE) clean

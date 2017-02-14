@@ -5,6 +5,9 @@ This gem includes protoc, the protobuf compiler, binaries for Linux, Mac, and Wi
 called `protoc` that picks the right one to run on your platform. You can use this gem to ensure that you have a protoc
 of the version you need. By using this gem, you will not need to manually install the right protoc on your hosts.
 
+The pre-built linux protoc binaries are not compatible with all systems.  For this reason the protobuf source code is
+included in this gem, and a new protoc binary is built upon gem installation when the pre-built one does not function.
+
 ## Suggested Use
 
 Put `protoc` in your Gemfile, with the version of protobuf that you need.

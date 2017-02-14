@@ -38,7 +38,6 @@ protoc_path = File.join(
 if $? != 0 && OS != 'windows'
   Dir.chdir(HERE) do
     template = File.read(File.join(HERE, 'Makefile.in'))
-    template.gsub!('@PROTOBUF_VERSION@', Protoc::PROTOBUF_VERSION)
     template.gsub!('@PROTOC_BINARY_PATH@', protoc_path)
     File.write(File.join(HERE, 'Makefile'), template)
   end
