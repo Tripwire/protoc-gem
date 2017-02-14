@@ -3,6 +3,9 @@ This license applies to all parts of the protoc-gem source, except:
   * The protoc binaries included in this gem are part of Protocol
     Buffers, which are copyrighted by Google, Inc. and available
     under the license at lib/protoc/protocol_buffers_license.txt.
+  * The Protocol Buffers source code included with this gem is
+    copyrighted by Google, Inc. and available under the license at
+    ext/protoc/protobuf/LICENSE.
 
 Copyright (c) 2016, Tripwire, Inc.
 All rights reserved.
