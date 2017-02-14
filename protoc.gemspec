@@ -9,9 +9,15 @@ Gem::Specification.new do |spec|
 
   spec.authors = 'Ben Jansen'
   spec.summary = 'Protoc binaries for Mac, Linux, and Windows'
-  spec.description = 'This gem includes protoc, the protobuf compiler, binaries for Linux, Mac, and Windows. It installs a executable shim
+  spec.description = <<EOF
+This gem includes protoc, the protobuf compiler, binaries for Linux, Mac, and Windows. It installs a executable shim
 called `protoc` that picks the right one to run on your platform. You can use this gem to ensure that you have a protoc
-of the version you need. By using this gem, you will not need to manually install the right protoc on your hosts.'
+of the version you need. By using this gem, you will not need to manually install the right protoc on your hosts.
+
+The pre-built linux protoc binaries are not compatible with all systems.  For this reason the protobuf source code is
+included in this gem, and a new protoc binary is built upon gem installation when the pre-built one does not function.
+EOF
+
   spec.homepage = 'https://github.com/Tripwire/protoc-gem'
   spec.license = 'BSD'
 
