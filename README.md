@@ -27,3 +27,5 @@ libprotoc 2.6.1
 
 The protoc binaries included in this gem came from the artifact
 [available in Maven Central](http://search.maven.org/#artifactdetails%7Ccom.google.protobuf%7Cprotoc%7C2.6.1%7Cpom).
+
+An AIX compatible binary has been added to the /bin folder, as the version of protobuf being used does not compiled correctly when attempting to install the gem on AIX.  MD5 (protoc-2.6.1-aix-powerpc) = 23945207b57158d5353a48a366b8fda4
