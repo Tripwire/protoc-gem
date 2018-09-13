@@ -44,7 +44,6 @@ case Platform::OS
     )
 end
 
-  
 `#{protoc_path} --version`
 if $? != 0 && OS != 'windows'
   Dir.chdir(HERE) do
