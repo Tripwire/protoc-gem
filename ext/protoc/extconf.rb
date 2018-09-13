@@ -33,9 +33,18 @@ OS = case Platform::OS
 
 HERE = File.expand_path(File.dirname(__FILE__))
 binpath = File.expand_path(File.join(HERE, '..', '..', 'bin'))
-protoc_path = File.join(
-  binpath, "protoc-#{Protoc::PROTOBUF_VERSION}-#{OS}-#{PLATFORM_TO_PROTOC_ARCH[platform_arch]}.exe"
-)
+case Platform::OS 
+  when :win32
+    protoc_path = File.join(
+      binpath, "protoc-#{Protoc::PROTOBUF_VERSION}-#{OS}-#{PLATFORM_TO_PROTOC_ARCH[platform_arch]}.exe"
+    )
+  else
+    protoc_path = File.join(
+      binpath, "protoc-#{Protoc::PROTOBUF_VERSION}-#{OS}-#{PLATFORM_TO_PROTOC_ARCH[platform_arch]}"
+    )
+end
+
+  
 `#{protoc_path} --version`
 if $? != 0 && OS != 'windows'
   Dir.chdir(HERE) do
