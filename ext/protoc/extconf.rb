@@ -1,7 +1,7 @@
 require 'platform'
 require_relative '../../lib/protoc/version'
 
-PLATFORM_TO_PROTOC_ARCH = {:x86 => :x86_32, :x86_64 => :x86_64}
+PLATFORM_TO_PROTOC_ARCH = {:x86 => :x86_32, :x86_64 => :x86_64, :powerpc => :powerpc}
 
 # Work around for lack of x86_64 support in Platform 0.4.0, which is the
 # latest in rubygems.org. https://github.com/mmower/platform/issues/3
@@ -22,6 +22,8 @@ OS = case Platform::OS
              'osx'
            when :linux
              'linux'
+           when :aix
+             'aix'
            else
              Platform::IMPL.to_s
          end
