@@ -1,7 +1,7 @@
 protoc
 ==================
 
-This gem includes protoc, the protobuf compiler, binaries for Linux, Mac, and Windows. It installs a executable shim
+This gem includes protoc, the protobuf compiler, binaries for Linux, Mac, Windows and AIX. It installs a executable shim
 called `protoc` that picks the right one to run on your platform. You can use this gem to ensure that you have a protoc
 of the version you need. By using this gem, you will not need to manually install the right protoc on your hosts.
 
