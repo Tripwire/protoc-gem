@@ -25,5 +25,28 @@ libprotoc 2.6.1
 
 ## Binaries
 
-The protoc binaries included in this gem came from the artifact
+The protoc binaries included in this gem  (with the exception of the AIX binary) came from the artifact
 [available in Maven Central](http://search.maven.org/#artifactdetails%7Ccom.google.protobuf%7Cprotoc%7C2.6.1%7Cpom).
+
+An AIX compatible binary has been added to the /bin folder, as the version of protobuf being used does not compile correctly when attempting to install the gem on AIX.  
+
+A compilation on AIX fails as a result of the wrong header file being used when the AIX platform is detected.  The fix applied was as follows:
+
+In the file: ```../protoc-gem/ext/protoc/protobuf/src/google/protobuf/stubs/atomicops.h```
+
+```
+// AIX
+#elif defined(GOOGLE_PROTOBUF_OS_AIX)
+#include <google/protobuf/stubs/atomicops_internals_power.h>
+```
+
+was changed to:
+
+```
+// AIX
+#elif defined(GOOGLE_PROTOBUF_OS_AIX)
+#include <google/protobuf/stubs/atomicops_internals_generic_gcc.h>
+```
+
+
+MD5 (protoc-2.6.1-aix-powerpc) = ```23945207b57158d5353a48a366b8fda4```
