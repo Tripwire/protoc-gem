@@ -3,16 +3,6 @@ require_relative '../../lib/protoc/version'
 
 PLATFORM_TO_PROTOC_ARCH = {:x86 => :x86_32, :x86_64 => :x86_64, :powerpc => :powerpc}
 
-# Work around for lack of x86_64 support in Platform 0.4.0, which is the
-# latest in rubygems.org. https://github.com/mmower/platform/issues/3
-def platform_arch
-  if Platform::ARCH == :unknown && RUBY_PLATFORM =~ /x86_64/
-    :x86_64
-  else
-    Platform::ARCH
-  end
-end
-
 OS = case Platform::OS
        when :win32
          'windows'
@@ -36,11 +26,11 @@ binpath = File.expand_path(File.join(HERE, '..', '..', 'bin'))
 case Platform::OS 
   when :win32
     protoc_path = File.join(
-      binpath, "protoc-#{Protoc::PROTOBUF_VERSION}-#{OS}-#{PLATFORM_TO_PROTOC_ARCH[platform_arch]}.exe"
+      binpath, "protoc-#{Protoc::PROTOBUF_VERSION}-#{OS}-#{PLATFORM_TO_PROTOC_ARCH[Platform::ARCH]}.exe"
     )
   else
     protoc_path = File.join(
-      binpath, "protoc-#{Protoc::PROTOBUF_VERSION}-#{OS}-#{PLATFORM_TO_PROTOC_ARCH[platform_arch]}"
+      binpath, "protoc-#{Protoc::PROTOBUF_VERSION}-#{OS}-#{PLATFORM_TO_PROTOC_ARCH[Platform::ARCH]}"
     )
 end
 
