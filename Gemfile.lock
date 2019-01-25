@@ -7,7 +7,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    Platform (0.4.1)
+    Platform (0.4.2)
     rake (11.1.2)
     rubygems-tasks (0.2.4)
 
