@@ -9,6 +9,8 @@ def exec_protoc_for_os(os)
   case Platform::OS
     when :win32
       exec("#{File.dirname(__FILE__)}/protoc-#{Protoc::PROTOBUF_VERSION}-#{os}-#{PLATFORM_TO_PROTOC_ARCH[Platform::ARCH]}.exe", *ARGV)
+     when :aix
+      exec("LIBPATH=/opt/freeware/lib #{File.dirname(__FILE__)}/protoc-#{Protoc::PROTOBUF_VERSION}-#{os}-#{PLATFORM_TO_PROTOC_ARCH[Platform::ARCH]}", *ARGV)
     else
       exec("#{File.dirname(__FILE__)}/protoc-#{Protoc::PROTOBUF_VERSION}-#{os}-#{PLATFORM_TO_PROTOC_ARCH[Platform::ARCH]}", *ARGV)
   end
