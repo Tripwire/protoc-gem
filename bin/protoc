@@ -12,9 +12,9 @@ def exec_protoc_for_os(os)
     else
       if os.eql? 'aix'
         puts("Setting LIBPATH to \"/opt/freeware/lib/pthread\" since we're on AIX.")
-        exec("LIBPATH=/opt/freeware/lib/pthread #{File.dirname(__FILE__)}/protoc-2.6.1-#{os}-#{PLATFORM_TO_PROTOC_ARCH[platform_arch]}", *ARGV)
+        exec("LIBPATH=/opt/freeware/lib/pthread #{File.dirname(__FILE__)}/protoc-2.6.1-#{os}-#{PLATFORM_TO_PROTOC_ARCH[Platform::ARCH]}", *ARGV)
       else
-        exec("#{File.dirname(__FILE__)}/protoc-2.6.1-#{os}-#{PLATFORM_TO_PROTOC_ARCH[platform_arch]}", *ARGV)
+        exec("#{File.dirname(__FILE__)}/protoc-2.6.1-#{os}-#{PLATFORM_TO_PROTOC_ARCH[Platform::ARCH]}", *ARGV)
       end
     end
 end
