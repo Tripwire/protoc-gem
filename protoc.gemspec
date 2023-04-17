@@ -26,7 +26,7 @@ EOF
   spec.extensions = 'ext/protoc/extconf.rb'
 
   spec.add_development_dependency 'bundler', '~> 1.0'
-  spec.add_development_dependency 'rake', '~> 11.0'
+  spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rubygems-tasks', '~> 0.2'
   spec.add_runtime_dependency 'Platform', '~> 0.4'
 end
