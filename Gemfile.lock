@@ -8,7 +8,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     Platform (0.4.2)
-    rake (11.1.2)
+    rake (13.0.6)
     rubygems-tasks (0.2.4)
 
 PLATFORMS
@@ -17,7 +17,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.0)
   protoc!
-  rake (~> 11.0)
+  rake (~> 13.0)
   rubygems-tasks (~> 0.2)
 
 BUNDLED WITH
